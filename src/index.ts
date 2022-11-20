@@ -47,7 +47,7 @@ app.get(
 
       res.json(data);
     } catch (error: any) {
-      res.json({
+      res.status(error.response?.status).json({
         status: error.response?.status,
         data: error.response?.data
       });
@@ -65,7 +65,7 @@ app.get(
 
       res.json(data);
     } catch (error: any) {
-      res.json({
+      res.status(error.response?.status).json({
         status: error.response?.status,
         data: error.response?.data
       });

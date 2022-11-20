@@ -25,7 +25,8 @@ const reducer: any = {
 reducer[ApiTransactionInfoAT.GET] = (state: State): State => {
   return {
     ...state,
-    isLoading: true
+    isLoading: true,
+    errors: undefined
   };
 };
 

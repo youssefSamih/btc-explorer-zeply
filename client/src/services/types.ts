@@ -5,6 +5,8 @@ export type ApiRes<T = undefined> = {
 };
 
 export type ApiResError = {
-  error: string;
-  message: string;
+  data: {
+    err_code: string;
+    message: string;
+  };
 };

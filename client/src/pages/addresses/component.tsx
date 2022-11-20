@@ -52,7 +52,7 @@ export const Addresses = () => {
         ) : addressSearch && !errors ? (
           <AddressOverview />
         ) : (
-          <div>{errors?.message || 'No results found'}</div>
+          <div>{errors?.data.message || 'No results found'}</div>
         )}
       </STAddressesContent>
     </AppContainer>

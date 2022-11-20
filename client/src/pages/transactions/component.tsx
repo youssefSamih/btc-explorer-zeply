@@ -51,7 +51,7 @@ export const Transactions = () => {
         ) : transactionSearch && !errors ? (
           <TransactionOverview />
         ) : (
-          <div>{errors?.message || 'No results found'}</div>
+          <div>{errors?.data.message || 'No results found'}</div>
         )}
       </STTransactionsContent>
     </AppContainer>
