@@ -4,6 +4,7 @@ import { FormattedNumber } from 'react-intl';
 import { Box } from '@/components';
 import { StoreState } from '@/store/reducers';
 import { STLabelBox, STAddressOverview } from './style';
+import { getCurrencyRate } from '@/utils/currency';
 
 // ~~~~~~ Component
 
@@ -11,35 +12,42 @@ export const AddressOverview = () => {
   // ~~~~~~ State
 
   const { addressSearch } = useSelector((state: StoreState) => state.address);
+  const { currency, currencyRates } = useSelector(
+    (state: StoreState) => state.currency
+  );
 
   // ~~~~~~ Render
 
   return (
     <STAddressOverview>
-      {addressSearch?.data.received ? (
+      {addressSearch?.data.received && currencyRates ? (
         <Box>
           <STLabelBox>Total BTC received</STLabelBox>
 
           <FormattedNumber
-            value={addressSearch.data.received}
+            value={getCurrencyRate(
+              currencyRates.btc[currency.toLowerCase()],
+              addressSearch.data.received
+            )}
             style="currency"
-            currency="BTC"
+            currency={currency}
             minimumFractionDigits={0}
-            currencyDisplay="name"
           />
         </Box>
       ) : undefined}
 
-      {addressSearch?.data.sent ? (
+      {addressSearch?.data.sent && currencyRates ? (
         <Box>
           <STLabelBox>Total BTC spent</STLabelBox>
 
           <FormattedNumber
-            value={addressSearch.data.sent}
+            value={getCurrencyRate(
+              currencyRates.btc[currency.toLowerCase()],
+              addressSearch.data.sent
+            )}
             style="currency"
-            currency="BTC"
+            currency={currency}
             minimumFractionDigits={0}
-            currencyDisplay="name"
           />
         </Box>
       ) : undefined}
@@ -52,16 +60,18 @@ export const AddressOverview = () => {
         </Box>
       ) : undefined}
 
-      {addressSearch?.data.balance ? (
+      {addressSearch?.data.balance && currencyRates ? (
         <Box>
           <STLabelBox>Current address balance</STLabelBox>
 
           <FormattedNumber
-            value={addressSearch.data.balance}
+            value={getCurrencyRate(
+              currencyRates.btc[currency.toLowerCase()],
+              addressSearch.data.balance
+            )}
             style="currency"
-            currency="BTC"
+            currency={currency}
             minimumFractionDigits={0}
-            currencyDisplay="name"
           />
         </Box>
       ) : undefined}

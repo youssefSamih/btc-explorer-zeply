@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // simple route
-app.get('/', async (_: express.Request, res: express.Response) => {
+app.get('/', async (_, res: express.Response) => {
   return res
     .status(errorResponse.response.status)
     .json(errorResponse.response.data);
@@ -72,6 +72,25 @@ app.get(
     }
   }
 );
+
+app.get('/currency-rate', async (_, res: express.Response) => {
+  try {
+    const { data } = await axios.get(`${config.currencyRateApiUri}`);
+
+    const btc = Object.fromEntries(
+      Object.entries(data.btc).filter(
+        ([key]) => key === 'usd' || key === 'eur' || key === 'btc'
+      )
+    );
+
+    res.json({
+      ...data,
+      btc
+    });
+  } catch (error) {
+    res.status(errorResponse.response.status).json(errorResponse.response.data);
+  }
+});
 
 app.all('/*', async (_: express.Request, res: express.Response) => {
   return res

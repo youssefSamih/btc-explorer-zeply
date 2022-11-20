@@ -8,6 +8,7 @@ import { Box } from './box/component';
 import { AddressOverview } from './address-overview/component';
 import { SearchBar } from './search-bar/component';
 import { TransactionOverview } from './transaction-overview/component';
+import { CurrencySelect } from './currency-select/component';
 
 export {
   Header,
@@ -19,5 +20,6 @@ export {
   Box,
   AddressOverview,
   SearchBar,
-  TransactionOverview
+  TransactionOverview,
+  CurrencySelect
 };

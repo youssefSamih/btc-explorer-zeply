@@ -45,3 +45,8 @@ export const STHeaderNotification = styled.div`
 
   padding: 10px;
 `;
+
+export const STLeftHeader = styled.div`
+  display: flex;
+  align-items: center;
+`;

@@ -1,11 +1,10 @@
-import React from 'react';
-
-import { LazySVG } from '@/components';
+import { CurrencySelect, LazySVG } from '@/components';
 import {
   STHeader,
   STHeaderLogo,
   STHeaderLogoSvg,
-  STHeaderNotification
+  STHeaderNotification,
+  STLeftHeader
 } from './style';
 
 // ~~~~~~ Constants
@@ -30,9 +29,13 @@ export const Header = () => {
         BTC Explorer
       </STHeaderLogo>
 
-      <STHeaderNotification>
-        <NotificationSvg size={NotificationLoaderSize} />
-      </STHeaderNotification>
+      <STLeftHeader>
+        <CurrencySelect />
+
+        <STHeaderNotification>
+          <NotificationSvg size={NotificationLoaderSize} />
+        </STHeaderNotification>
+      </STLeftHeader>
     </STHeader>
   );
 };

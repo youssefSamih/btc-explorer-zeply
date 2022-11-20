@@ -3,6 +3,7 @@ import { FormattedNumber } from 'react-intl';
 
 import { Box } from '@/components';
 import { StoreState } from '@/store/reducers';
+import { getCurrencyRate } from '@/utils/currency';
 import { STLabelBox, STTransactionOverview } from './style';
 
 // ~~~~~~ Component
@@ -12,6 +13,10 @@ export const TransactionOverview = () => {
 
   const { transactionSearch } = useSelector(
     (state: StoreState) => state.transaction
+  );
+
+  const { currencyRates, currency } = useSelector(
+    (state: StoreState) => state.currency
   );
 
   // ~~~~~~ Render
@@ -58,44 +63,50 @@ export const TransactionOverview = () => {
         </Box>
       ) : undefined}
 
-      {transactionSearch?.data.inputs_value ? (
+      {transactionSearch?.data.inputs_value && currencyRates ? (
         <Box>
           <STLabelBox>Total BTC input</STLabelBox>
 
           <FormattedNumber
-            value={transactionSearch?.data.inputs_value}
+            value={getCurrencyRate(
+              currencyRates.btc[currency.toLowerCase()],
+              transactionSearch.data.inputs_value
+            )}
             style="currency"
-            currency="BTC"
+            currency={currency}
             minimumFractionDigits={0}
-            currencyDisplay="name"
           />
         </Box>
       ) : undefined}
 
-      {transactionSearch?.data.outputs_value ? (
+      {transactionSearch?.data.outputs_value && currencyRates ? (
         <Box>
           <STLabelBox>Total BTC output</STLabelBox>
 
           <FormattedNumber
-            value={transactionSearch?.data.outputs_value}
+            value={getCurrencyRate(
+              currencyRates.btc[currency.toLowerCase()],
+              transactionSearch?.data.outputs_value
+            )}
             style="currency"
-            currency="BTC"
+            currency={currency}
             minimumFractionDigits={0}
-            currencyDisplay="name"
           />
         </Box>
       ) : undefined}
 
-      {transactionSearch?.data.fee ? (
+      {transactionSearch?.data.fee && currencyRates ? (
         <Box>
           <STLabelBox>Total Fees</STLabelBox>
 
           <FormattedNumber
-            value={transactionSearch?.data.fee}
+            value={getCurrencyRate(
+              currencyRates.btc[currency.toLowerCase()],
+              transactionSearch.data.fee
+            )}
             style="currency"
-            currency="BTC"
+            currency={currency}
             minimumFractionDigits={0}
-            currencyDisplay="name"
           />
         </Box>
       ) : undefined}
