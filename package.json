@@ -45,8 +45,7 @@
   "lint-staged": {
     "*.{tsx,ts}": [
       "npm run lint-and-fix"
-    ],
-    "*.{ts,tsx,js,css,md}": "prettier --write"
+    ]
   },
   "dependencies": {
     "axios": "^1.1.3",
