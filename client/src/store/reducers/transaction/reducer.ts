@@ -1,4 +1,7 @@
-import { TransactionFieldMR } from '@/store/actions/transaction-info/action';
+import {
+  ApiTransactionInfoAC,
+  TransactionFieldMR
+} from '@/store/actions/transaction-info/action';
 import { ApiTransactionInfoAT } from '@/store/actions/transaction-info/action';
 import {
   EpicApiTransactionInfoMC,
@@ -57,6 +60,20 @@ reducer[EpicApiTransactionInfoMT.ERROR] = (
     ...state,
     errors: payload.errors,
     isLoading: false
+  };
+};
+
+// ####################################################################################################
+// ~~~~~~ set notification transactions
+// ####################################################################################################
+
+reducer[ApiTransactionInfoAT.SET_NOTIFICATION] = (
+  state: State,
+  { payload }: ReturnType<typeof ApiTransactionInfoAC.setNotification>
+): State => {
+  return {
+    ...state,
+    notificationHashes: [...(state?.notificationHashes || []), payload]
   };
 };
 

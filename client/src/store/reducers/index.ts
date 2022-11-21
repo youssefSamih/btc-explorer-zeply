@@ -23,6 +23,7 @@ type Model = {
     isLoading: boolean;
     errors?: ApiResError;
     transactionSearch?: TransactionInfoApiGetRes;
+    notificationHashes?: string[];
   };
   currency: {
     isLoading: boolean;

@@ -5,7 +5,8 @@ const prefix = 'at-api-transaction-info';
 // ~~~~~~ Action Types
 
 export const ApiTransactionInfoAT = {
-  GET: `${prefix}-get`
+  GET: `${prefix}-get`,
+  SET_NOTIFICATION: `${prefix}-SET_NOTIFICATION`
 } as const;
 
 // ~~~~~~ Action Mutators
@@ -13,6 +14,10 @@ export const ApiTransactionInfoAT = {
 export const ApiTransactionInfoAC = {
   start: () => ({
     type: ApiTransactionInfoAT.GET
+  }),
+  setNotification: (notification: string) => ({
+    type: ApiTransactionInfoAT.SET_NOTIFICATION,
+    payload: notification
   })
 } as const;
 

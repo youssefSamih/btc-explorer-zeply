@@ -99,7 +99,7 @@ app.all('/*', async (_: express.Request, res: express.Response) => {
 });
 
 // set port, listen for requests
-const PORT = config.port || 8080;
+const PORT = (config.port && parseInt(config.port)) || 8080;
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
