@@ -22,7 +22,7 @@ export const TransactionOverview = () => {
   // ~~~~~~ Render
 
   return (
-    <STTransactionOverview>
+    <STTransactionOverview data-test="transaction-overview">
       {transactionSearch?.data.hash ? (
         <Box>
           <STLabelBox>Transaction hash</STLabelBox>

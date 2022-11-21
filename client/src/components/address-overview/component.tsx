@@ -19,7 +19,7 @@ export const AddressOverview = () => {
   // ~~~~~~ Render
 
   return (
-    <STAddressOverview>
+    <STAddressOverview data-test="address-overview">
       {addressSearch?.data.received && currencyRates ? (
         <Box>
           <STLabelBox>Total BTC received</STLabelBox>

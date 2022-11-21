@@ -88,8 +88,9 @@ export const SearchBar = ({
   // ~~~~~~ Render
 
   return (
-    <STSearchBar>
+    <STSearchBar data-test="search-bar">
       <STInputSearch
+        data-test="search-input"
         type="text"
         placeholder={placeholder}
         onChange={onChange}
@@ -105,7 +106,11 @@ export const SearchBar = ({
         </STSubscribeButton>
       ) : undefined}
 
-      <STSubmitSearch disabled={isSubmitDisabled} onClick={onSubmitSearch}>
+      <STSubmitSearch
+        data-test="submit-search"
+        disabled={isSubmitDisabled}
+        onClick={onSubmitSearch}
+      >
         <SearchIcon size={ICON_SEARCH_LOAD_SIZE} />
       </STSubmitSearch>
     </STSearchBar>
