@@ -1,5 +1,18 @@
 # Getting Started with Create React App
 
+create .env file in root project with this environment variable
+
+PORT=8080
+CORS_ORIGIN=http://127.0.0.1:3000
+BLOCK_CHAIN_INFO_API_URI=https://chain.api.btc.com/v3
+CURRENCY_BTC_RATE_API_URI=https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/btc.json
+
+and inside client folder with this environment variable
+
+REACT_APP_API_URI=http://localhost:8080
+REACT_APP_WEBSOCKET_URI=wss://ws.blockchain.info/inv
+NODE_ENV=development
+
 This project was made with:
 
 - Node.js
