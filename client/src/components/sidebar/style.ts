@@ -1,13 +1,31 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { MediaQuery } from '@/constants/media-queries';
 
-export const STSidebar = styled.aside`
-  width: 280px;
+type STSidebarProps = {
+  isCollapsed?: boolean;
+};
+
+export const STSidebar = styled.aside<STSidebarProps>`
+  transition: width 0.5s;
+
+  width: ${({ isCollapsed }) => (isCollapsed ? 72 : 280)}px;
   height: 100vh;
 
   background-color: ${({ theme }) => theme.colors.GhostWhite};
 
   padding-top: 100px;
+
+  @media (max-width: ${MediaQuery.MaxWidthSmall}) {
+    position: absolute;
+    z-index: 5;
+
+    width: 60px;
+
+    &:hover {
+      width: 280px;
+    }
+  }
 `;
 
 export const STSidebarUl = styled.ul`

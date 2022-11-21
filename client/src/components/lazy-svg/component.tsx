@@ -7,7 +7,9 @@ type TIcons =
   | 'icons/notification'
   | 'icons/transactions'
   | 'icons/search-address'
-  | 'icons/search';
+  | 'icons/search'
+  | 'icons/left-arrow'
+  | 'icons/right-arrow';
 
 type Icons = TLogos | TIcons;
 

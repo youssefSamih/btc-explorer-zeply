@@ -11,6 +11,12 @@ import {
   STSidebarUl
 } from './style';
 
+// ~~~~~~ Types
+
+type Props = {
+  isCollapsed: boolean;
+};
+
 // ~~~~~~ Constants
 
 const TransactionsIcon = LazySVG('icons/transactions');
@@ -33,11 +39,11 @@ const IconLoaderSize = 30;
 
 // ~~~~~~ Component
 
-export const Sidebar = () => {
+export const Sidebar = ({ isCollapsed }: Props) => {
   // ~~~~~~ Render
 
   return (
-    <STSidebar>
+    <STSidebar isCollapsed={isCollapsed}>
       <Scrollbars>
         <STSidebarUl>
           {LINK_SIDEBAR.map(({ label, link, Icon }) => (
@@ -49,7 +55,7 @@ export const Sidebar = () => {
                 <STSidebarIcon>
                   <Icon size={IconLoaderSize} />
                 </STSidebarIcon>
-                {label}
+                {!isCollapsed ? label : ''}
               </STSidebarItemLink>
             </STSidebarItem>
           ))}

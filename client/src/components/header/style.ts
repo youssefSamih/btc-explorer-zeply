@@ -50,3 +50,19 @@ export const STLeftHeader = styled.div`
   display: flex;
   align-items: center;
 `;
+
+export const STCollapse = styled.div`
+  display: flex;
+
+  margin-left: 13px;
+
+  cursor: pointer;
+
+  svg {
+    width: 30px;
+
+    path {
+      fill: ${({ theme }) => theme.colors.FriarGrey};
+    }
+  }
+`;
