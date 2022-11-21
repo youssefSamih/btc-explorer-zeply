@@ -1,10 +1,12 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { Header, Sidebar } from '@/components';
+import { Header, NotificationAlert, Sidebar } from '@/components';
 import { RoutesLink } from './constants/routes';
 import { Addresses } from './pages/addresses/component';
 import { Transactions } from './pages/transactions/component';
-import { STApp } from './style';
+import { STApp, STNotificationContainer } from './style';
+import { useSelector } from 'react-redux';
+import { StoreState } from './store/reducers';
 
 const ROUTES_COMPONENTS = [
   {
@@ -18,9 +20,18 @@ const ROUTES_COMPONENTS = [
 ];
 
 function App() {
+  const { notificationHashes } = useSelector(
+    (state: StoreState) => state.transaction
+  );
   return (
     <>
       <Header />
+
+      <STNotificationContainer>
+        {notificationHashes?.map((transactionHash) => (
+          <NotificationAlert transactionHash={transactionHash} />
+        ))}
+      </STNotificationContainer>
 
       <STApp>
         <Sidebar />

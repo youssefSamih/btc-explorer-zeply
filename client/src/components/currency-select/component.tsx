@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Select, { ActionMeta, SingleValue } from 'react-select';
+import Select from 'react-select';
 
 import { StoreState } from '@/store/reducers';
 import {

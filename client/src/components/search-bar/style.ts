@@ -62,3 +62,15 @@ export const STSubmitSearch = styled.button<STSubmitSearchProps>`
     }
   }
 `;
+
+export const STSubscribeButton = styled.button`
+  cursor: pointer;
+
+  margin: 7px;
+
+  padding: 0;
+  border: none;
+
+  background: none;
+  color: ${({ theme }) => theme.colors.DarkCerulean};
+`;

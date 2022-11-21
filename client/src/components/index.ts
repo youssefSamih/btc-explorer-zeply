@@ -9,6 +9,7 @@ import { AddressOverview } from './address-overview/component';
 import { SearchBar } from './search-bar/component';
 import { TransactionOverview } from './transaction-overview/component';
 import { CurrencySelect } from './currency-select/component';
+import { NotificationAlert } from './notification-alert/component';
 
 export {
   Header,
@@ -21,5 +22,6 @@ export {
   AddressOverview,
   SearchBar,
   TransactionOverview,
-  CurrencySelect
+  CurrencySelect,
+  NotificationAlert
 };
